@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Feed</title>
+	<link href="https://kristaps.bsd.lv/sblg/examples/retro" />
+	<link href="https://kristaps.bsd.lv/sblg/examples/retro/atom.xml" rel="self" />
+	<id>https://kristaps.bsd.lv/sblg/examples/retro</id>
+	<updated>2025-03-18T00:00:00Z</updated>
+	<entry>
+		<id>https://kristaps.bsd.lv/sblg/examples/retro/blog1.xml#2025-03-18T00:00:00Z</id>
+		<updated>2025-03-18T00:00:00Z</updated>
+		<title>No Blue Screens Here, Just a Bit of Kernel Panic and a Whole Load of Blogging</title>
+		<author><name>cowmonk</name></author>
+		<link rel="alternate" type="text/html" href="https://kristaps.bsd.lv/sblg/examples/retro/blog1.html" />
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+An introduction, why would I create a blog, plans for the future, and other random things</div>
+		</content>
+	</entry>
+
+</feed>
+
