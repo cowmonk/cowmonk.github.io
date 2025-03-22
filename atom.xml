@@ -4,7 +4,18 @@
 	<link href="https://kristaps.bsd.lv/sblg/examples/retro" />
 	<link href="https://kristaps.bsd.lv/sblg/examples/retro/atom.xml" rel="self" />
 	<id>https://kristaps.bsd.lv/sblg/examples/retro</id>
-	<updated>2025-03-18T00:00:00Z</updated>
+	<updated>2025-03-21T00:00:00Z</updated>
+	<entry>
+		<id>https://kristaps.bsd.lv/sblg/examples/retro/blog2.xml#2025-03-21T00:00:00Z</id>
+		<updated>2025-03-21T00:00:00Z</updated>
+		<title>Beyond Prepackaged - Why I Use Linux From Scratch</title>
+		<author><name>cowmonk</name></author>
+		<link rel="alternate" type="text/html" href="https://kristaps.bsd.lv/sblg/examples/retro/blog2.html" />
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+Building Linux from Scratch can feel a bit like assembling a complex jigsaw puzzle: frustrating at times, but ultimately supremely rewarding when everything clicks into place.</div>
+		</content>
+	</entry>
 	<entry>
 		<id>https://kristaps.bsd.lv/sblg/examples/retro/blog1.xml#2025-03-18T00:00:00Z</id>
 		<updated>2025-03-18T00:00:00Z</updated>
