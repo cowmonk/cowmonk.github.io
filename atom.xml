@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<title>Feed</title>
+	<title>cowmonks random blog</title>
         <link href="https://cowmonk.github.io" />
         <link href="https://cowmonk.github.io/atom.xml" rel="self" />
 	<id>https://cowmonk.github.io/</id>
