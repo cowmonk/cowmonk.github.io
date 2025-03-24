@@ -5,14 +5,68 @@
         <link href="https://cowmonk.github.io/atom.xml" rel="self" />
 	<id>https://cowmonk.github.io/</id>
 	<updated>2025-03-22T00:00:00Z</updated>
-	<entry>
+        <entry>
 		<id>https://cowmonk.github.io/blog2.xml#2025-03-22T00:00:00Z</id>
 		<updated>2025-03-22T00:00:00Z</updated>
 		<title>Beyond Prepackaged - Why I Use Linux From Scratch</title>
 		<author><name>cowmonk</name></author>
+		<link rel="alternate" type="text/html" href="https://cowmonk.github.io/{sblg-base}.html" />
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
-Building Linux from Scratch can feel a bit like assembling a complex jigsaw puzzle: frustrating at times, but ultimately supremely rewarding when everything clicks into place.</div>
+<article>
+ <header>
+  <h2>Beyond Prepackaged - Why I Use Linux From Scratch</h2>
+  <aside>Building Linux from Scratch can feel a bit like assembling a complex jigsaw puzzle: frustrating at times, but ultimately supremely rewarding when everything clicks into place.</aside>
+  <address>cowmonk</address>
+  <time datetime="2025-03-22">2025-03-22</time>
+ </header>
+<p>Linux From Scratch&#8230; </p>
+<p>The very name tells you everything that you need to know. </p>
+<p>Already, there is a sense of dread when you think about starting with a bare-metal system and building everything from the ground up. 
+And it doesn&#8217;t get any better, one quick look, and you learn of the monstrous process of manually installing and resolving your own dependencies. Not only is installing is difficult, but updating it
+too. Looking at this, people will naturally wonder, &#8220;why would you even try using LFS?&#8221;.</p>
+<p>I am not the average computer user, but I do still use an LFS system for school and other fun things no problem. What I say doesn&#8217;t mean that I&#8217;m telling you how you should use your computer, but 
+an insight of <em>why</em> I personally enjoy it. If you are interested in what I talk about, and if you want to try LFS; I implore you to try it out or explore it, but be aware of the hardships you&#8217;ll face because, 
+I do want to preface that 
+LFS is no weekend project, unless it&#8217;s not your first rodeo and you&#8217;re following by the books, it&#8217;s a marathon, and your patience&#8211;or coffee supply&#8211;will be tested.</p>
+<h2 id="building-things-from-scratch">Building Things from Scratch</h2>
+<p>There is a common misconception that LFS is really difficult to maintain, and even sometimes I see people say practically impossible; however that can only be far from the truth, and the difficulty of it isn&#8217;t that 
+high as well: the <a href="https://www.linuxfromscratch.org/lfs/read.html">handbook</a> can be easily skimmed and the process is relatively simple to understand. Most people can just copy &#38; paste, just like most of 
+troubleshooting in Arch anyways. However, there is a level of difficulty in the tedious task of installing packages without a package manager. 
+But that also isn&#8217;t fully true in itself either, as you can install a package manager like <a href="https://nixos.org/">nix</a> (in my opinion, flatpak done right) to automate most installations. Obviously, you could use normal distros and also install nix on top of that, but the ability
+have multiple options like pacman, apt, zypper, xbps, etc. are all available on LFS, without the need to distro-hop, and without the need to isolate the package manager in its own prefix since it&#8217;s <a href="https://www.youtube.com/watch?v=8vc7kDjEIhs">really not a good idea to not isolate it</a>.</p>
+<p>And that is where we go into one of my favorite aspects of LFS: the ability to build everything with your own tools and environment that you want: <strong>You are not bound to any environment</strong>. That probably means nothing to the majority of users, but the fact that you are not bound to anything is very liberating; what 
+it means is the ability to be fluid&#8211;similar to how Arch Linux is not defined to what it looks like, while Ubuntu is generally thought of with their own Gnome spin&#8211;LFS is not defined on what it can 
+even come with.</p>
+<p>But of course, another thing people say is that <a href="https://www.gentoo.org/get-started/about/">Gentoo</a> is just LFS with tools on top. This is not entirely true, Gentoo is a &#8220;meta-distro&#8221;, a fancy way of saying that although it is much more customizable than Arch, it is still a &#8220;distro&#8221; at the end of the day. 
+There are tools that are forced upon you, such as portage, udev, etc. that make it give you the &#8220;gentoo experience&#8221;. A real LFS with tools would be starting from <strong>SCRATCH</strong> (no stage3s or whatever) and adding the tools 
+you want yourself, which is what you do on LFS anyways. But then does it mean that you can&#8217;t enjoy the customizability Gentoo already gives you? Of course not!</p>
+<p>But what I mean is that the customizability and control that you have over your LFS system is unlike any other distro I have ever used. There&#8217;s something satisfying that comes from understanding how all packages are 
+compiled and how USE flags on Gentoo really works on a lower level. There is much less abstraction, and you get to take in the raw &#8220;Linux experience&#8221;. There is a sense of accomplishment from doing these types of 
+challenges as well, so that&#8217;s another bonus too.</p>
+<h2 id="challenges">Challenges</h2>
+<p>Of course, the ease of LFS can only be true if you follow the handbook word by word and not shake things up a bit. Everything I said about LFS&#8217; difficulty before is still true. But the real hell comes from lack of 
+documentation; while the handbook is comprehensive, doing anything not in the handbook often require digging through forum threads and&#47;or mailing lists. Whilst this is the norm for most programmers, at least with the 
+rise of AI: finding answers to those programming questions are much easier and generally accurate. Unfortunately for me, doing crazy things like a pure clang toolchain on LFS is apparently not in any training data of any popular LLMs 
+I&#8217;ve tried, resulting in just trial and error. And trust me, I&#8217;ve done all sorts of prompt engineering, but to no avail.</p>
+<p>A common misconception that I want to address here is concerning the stability of LFS. And unlike Arch that&#8217;ll break if you breath on it the wrong way, LFS is surprisingly stable and nothing usually ever breaks, only very rarely. 
+And it has to do with the fact that it&#8217;s not very common for most LFS users to update their packages and most LFS users following stable releases of the handbook that are known to work. At least from my experience, a LFS system has never broke on me 
+but there are compilation issues if you try and do what I do: <strong>my own damn way</strong>. Other than those outliers, it&#8217;s similar to why debian is stable in that you rarely ever update; and when you do, it usually should work out fine 
+since you usually only update one minor component of the system, like for example firefox rather than core components like glibc very often.</p>
+<p>Challenges to using a LFS system are always annoying, they always happen due to my nature of tinkering too much, 
+but at least for me: the challenge is always worth it. It makes using my computer more exciting, and the results of doing something that no one really does makes me feel great. Every time my computer boots, it&#8217;s a 
+testament to perseverance and continuous learning, and somewhat of a surprise to the stability of a LFS system.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>I have done my best to compile some of my favorite aspects of LFS into a coherent blog post, but in reality it&#8217;s a complicated love-hate relationship. I really think LFS is about breaking 
+abstraction layers and discovering the beauty of simplicity beneath complex design. Before I have tried LFS, I never really understood how complex Linux was, how modern tools really made 
+our ideas of distros so convoluted and we don&#8217;t really appreciate the effort and work that really goes into it; especially for me, as the founder of LearnixOS, it&#8217;s really thanks to LFS 
+that I have a clear path and a vision to create an independent distro. </p>
+<p>For all to have made it to the end of this blog post, I want to thank you personally for taking an interest into what I have to say. I want to apologize for the wait, I&#8217;ve been pretty caught up 
+with school, and hopefully I can try to make these come out faster. I also want to thank Patrick from the LearnixTV server for this amazing idea, I hope I answered the question to a satisfactory 
+amount.</p>
+<p>But that&#8217;s all from me! Happy building, and may your compilations be error-free!</p>
+<p>&#8211; cowmonk</p>
+</article></div>
 		</content>
 	</entry>
 	<entry>
@@ -20,9 +74,32 @@ Building Linux from Scratch can feel a bit like assembling a complex jigsaw puzz
 		<updated>2025-03-18T00:00:00Z</updated>
 		<title>No Blue Screens Here, Just a Bit of Kernel Panic and a Whole Load of Blogging</title>
 		<author><name>cowmonk</name></author>
+		<link rel="alternate" type="text/html" href="https://cowmonk.github.io/{sblg-base}.html" />
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
-An introduction, why would I create a blog, plans for the future, and other random things</div>
+<article>
+ <header>
+  <h2>No Blue Screens Here, Just a Bit of Kernel Panic and a Whole Load of Blogging</h2>
+  <aside>An introduction, why would I create a blog, plans for the future, and other random things</aside>
+  <address>cowmonk</address>
+  <time datetime="2025-03-18">2025-03-18</time>
+ </header>
+<p>It was a simple suggestion from someone on the LearnixTV server when I completed one of the hardest challenges of my linux journey, achieving 30mib idle with dwm running on a modern 64 bit system: <strong>&#8220;why don&#8217;t you make a blog post about this?&#8221;</strong>, or something along those lines. It really stuck with me, and it was further strengthened by <a href="https://kirawano.github.io/YARB.html">kirwano&#8217;s blogs</a> and <a href="https://blog.spacehey.com/tronnerd82">TronNerd&#8217;s blogs</a>; reading them gave me a lot of inspiration in what I could write about and get down into.
+The idea of writing and documenting what I did and writing guides for other enthusiasts like myself intrigued me. But when I do write, hopefully I won&#8217;t bore anyone with what I have to say and people can gain insight from these blogs.</p>
+<h2 id="more-about-me">More about me</h2>
+<p>For the unaware, I am known as cowmonk, a crazy linux lunatic if the intro didn&#8217;t tell you otherwise. My first daily driver was arch, being the only reason for using it (being a life long windows user back then) was for a challenge. Hence, it was a no-brainer for me to move to gentoo as I naturally sought more ways to inconvenience myself whilst using my computer. My time on gentoo was simply put: &#8220;a tinker&#8217;s dream&#8221;, I gradually became a huge suckless shill and loved the minimalist approach.
+This brought me down a massive rabbit hole and I began to aim for the most bloatless system, with the least possible amount of ram used.
+And so, began the long journey to 30mib and &#8220;debloating&#8221; my system. It was then however, after acheiving such a massive goal, I realized that there was
+truly nothing left for me to do, and finally my switch to LFS as my final distro and daily driver.</p>
+<p>During this time of my linux journey, I also somehow became the founder of <a href="https://learnixos.github.io">LearnixOS</a>, which started out as a joke. In fact, the distro was supposed to be a spin off of Linux Mint, and just be another Hannah Montana joke distro. It went through many ideas and iterations of what it could be. How I would love to continue on about the history of LearnixOS, but that&#8217;ll be for a future blog post. Long story short, LearnixOS is now LFS based, and as of writing there are already multiple people working on it and its own <a href="https://learnixos.github.io/lxpkg.html">custom package manager</a>. </p>
+<h2 id="plans">Plans</h2>
+<p>I plan to continue these blogs as frequent as possible, a partial reason being to help me get better at writing in english. If your cup of tea is to listen to a nerd do nerdy things, I hope that by the end of every blog post from me you are able to replicate my actions or learn something. There might be a few rants&#47;papers coming up, but also on the process on some insane projects I did in the past; There are also plans for guides, such as tips and tricks for custom kernels if anyone is
+interested in that.
+These plans aren&#8217;t fully set in stone and it would be interesting to dive into other things, such as updates on LearnixOS or anything of the like.</p>
+<h2 id="contact">Contact</h2>
+<p>If you want to contact me, my public contact exists on discord primarily: cowmonk (duh)</p>
+<p>I don&#8217;t really use anything else, unless I really want to doxx myself.</p>
+</article></div>
 		</content>
 	</entry>
 
