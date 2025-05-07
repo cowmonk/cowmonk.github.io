@@ -65,26 +65,38 @@ See, once you have a working system, there isn&#8217;t a need to keep on configu
 <h1 id="a-c-compiler"><strong>A C Compiler:</strong></h1>
 <p>Most likely, you&#8217;ll want <code>gcc</code>. It&#8217;s the most common C compiler everyone gets.</p>
 <p>If you&#8217;re on a Debian-based system (like Mint), you can usually get this and other essential tools by installing <code>build-essential</code>.</p>
-<pre><code class="language-bash">    $ sudo apt install build-essential 
+<pre><code class="language-bash">┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+| $ sudo apt install build-essential                                                                  |
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
 </code></pre>
 <p>For Arch users (for the &#8220;I use Arch btw&#8221; furries):</p>
-<pre><code class="language-bash">    $ sudo pacman -S base-devel
+<pre><code class="language-bash">┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+| $ sudo pacman -S base-devel                                                                         |
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
 </code></pre>
 <p>And for Fedora folks:</p>
-<pre><code class="language-bash">    $ sudo dnf groupinstall "Development Tools" "Development Libraries"
+<pre><code class="language-bash">┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+| $ sudo dnf group install "Development Tools" "Development Libraries"                                |
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
 </code></pre>
 <h1 id="make"><strong>Make:</strong></h1>
 <p>This is a build automation tool that will, well, &#8220;<em>make</em>&#8221; dwm for you. It usually comes with the <code>build-essential</code> or <code>base-devel</code> packages.</p>
 <h1 id="libx11-development-files"><strong>LibX11 development files:</strong></h1>
 <p>DWM interacts with the X Window System, so you&#8217;ll need the development headers for it. Often called something like <code>libx11-dev</code> or <code>libX11-devel</code>.</p>
 <p>Debian:</p>
-<pre><code class="language-bash">    $ sudo apt install libx11-dev libxft-dev libxinerama-dev
+<pre><code class="language-bash">┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+| $ sudo apt install libx11-dev libxft-dev libxinerama-dev                                            |
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
 </code></pre>
 <p>Arch:</p>
-<pre><code class="language-bash">    $ sudo pacman -S libx11 libxft libxinerama
+<pre><code class="language-bash">┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+| $ sudo pacman -S libx11 libxft libxinerama                                                          |
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
 </code></pre>
 <p>Fedora:</p>
-<pre><code class="language-bash">    $ sudo dnf install libX11-devel libXft-devel libXinerama-devel
+<pre><code class="language-bash">┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+| $ sudo dnf install libX11-devel libXft-devel libXinerama-devel                                      |
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
 </code></pre>
 <p><em>(Note: <code>libxft-dev</code> is for font rendering and <code>libxinerama-dev</code> is handy for multi-monitor setups, which you&#8217;ll probably want later on!)</em></p>
 <p>Got all that? Sweet!</p>
@@ -101,7 +113,9 @@ However I recommend personally to get their official <a href="https://dl.suckles
 <p>Take a peek. You&#8217;ll see a bunch of <code>.c</code> files, a <code>Makefile</code>, and the golden goose: <strong>config.def.h</strong>.</p>
 <h2 id="the-infamous-">The Infamous <code>config.h</code></h2>
 <p>This is where the magic happens, folks. <code>config.def.h</code> is the <em>default</em> configuration. You&#8217;re not supposed to edit this directly. Instead, you copy it to <code>config.h</code>:</p>
-<pre><code class="language-bash">    $ cp config.def.h config.h
+<pre><code class="language-bash">┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+| $ cp config.def.h config.h                                                                          |
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
 </code></pre>
 <p>Now, config.h is <strong>your</strong> personal configuration file. Open it up with your favorite text editor. You&#8217;ll see C arrays defining your keys, your tags, your fonts, your colors. 
 It might look a bit intimidating at first, but it&#8217;s surprisingly straightforward.</p>
@@ -110,28 +124,36 @@ It might look a bit intimidating at first, but it&#8217;s surprisingly straightf
 <p>Still in your dwm directory? Good. Time to compile!
 This is the part that sounds scary but is usually super simple thanks to the Makefile.</p>
 <p>To compile and install it system-wide:</p>
-<pre><code class="language-bash">    $ sudo make clean install
+<pre><code class="language-bash">┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+| $ sudo make clean install                                                                           |
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
 </code></pre>
 <p>Or, if you prefer not to install it system-wide immediately yet (which is a good idea for testing):</p>
-<pre><code class="language-bash">    $ make
+<pre><code class="language-bash">┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+| $ make                                                                                              |
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
 </code></pre>
 <p>If all your prerequisites were met, this should complete without errors. You&#8217;ll now have a dwm executable file in the directory (and runnable in your terminal if 
 you ran the system wide installation)!</p>
 <p>To run dwm, you&#8217;ll typically need to configure your .xinitrc file to launch it. 
 For example, you could add this line to your ~&#47;.xinitrc:</p>
-<pre><code class="language-bash">    exec dwm
+<pre><code class="language-bash">┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+| exec dwm                                                                                            |
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
 </code></pre>
 <p>For the people who run a Display Manager which is more likely (i.e gdm, sddm, lightdm, etc.). You&#8217;ll need to create a .desktop file. 
 This file basically has the information and stuff for the thing to see and run it. You&#8217;ll need to create one in the &#47;usr&#47;share&#47;xsessions&#47;. 
 And here&#8217;s an example <strong>dwm.desktop</strong> for reference:</p>
 <p>&#47;usr&#47;share&#47;xsessions&#47;dwm.desktop:</p>
-<pre><code>[Desktop Entry]
-Encoding=UTF-8
-Name=dwm
-Comment=Dynamic window manager
-Exec=dwm
-Icon=dwm
-Type=XSession
+<pre><code class="language-bash">┌────────────────────────────────────┐
+|   [Destop Entry]                   | 
+|   Encoding=UTF-8                   |
+|   Name=dwm                         |
+|   Comment=Dynamic window manager   |
+|   Exec=dwm                         |
+|   Icon=dwm                         |
+|   Type=XSession                    |
+└────────────────────────────────────┘
 </code></pre>
 <p>The default keybinding for the Terminal is <em>Alt+Shift+Return</em>. Any other keybindings can be found in config.h, it shouldn&#8217;t be hard to
 understand the giant struct declaration. Comments left by the suckless team are your friends! Read them!</p>
@@ -157,9 +179,11 @@ package manager. Once you&#8217;ve done that here are the general steps:</p>
 <li><p>Find a Patch: Head over to the dwm patches page. Find a patch you like. Let&#8217;s say you want the autostart patch, 
 which allows you to run commands automatically when dwm starts (I highly reccomend this especially if you&#8217;re running from a display manager!).</p></li>
 <li><p>Download the Patch: Download the .diff file for the patch. Save it somewhere, perhaps in a patches subdirectory within your dwm source folder.</p></li>
-<li><p>Apply the Patch: In your dwm source directory, use the patch command:</p></li>
+<li><p>Apply the Patch: In your dwm source directory, use the patch command: </p></li>
 </ol>
-<pre><code class="language-bash">        patch -Np1 -i patchfile.diff
+<pre><code class="language-bash">┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+| $ patch -Np1 -i &#47;path&#47;to&#47;patchfile.diff                                                             |
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
 </code></pre>
 <ol start="4">
 <li><p>Resolve Conflicts (If Any): Sometimes, patches might conflict, especially if they modify the same lines of code or if you&#8217;re applying a patch meant 
@@ -167,7 +191,9 @@ for an older version of dwm. This will result in .rej (rejected) files. You&#821
 at the .rej files to see what couldn&#8217;t be applied. This is the trickiest part, but it gets easier with practice. Start with simple, popular patches.</p></li>
 <li><p>Recompile: After applying a patch (and resolving any conflicts), you need to recompile!</p></li>
 </ol>
-<pre><code class="language-bash">        $ sudo make clean install
+<pre><code class="language-bash">┌─────────────────────────────────────────────────────────────────────────────────────────────────────┐
+| $ sudo make clean install                                                                           |
+└─────────────────────────────────────────────────────────────────────────────────────────────────────┘
 </code></pre>
 <p>And that&#8217;s the patching dance! It can be a bit fiddly, especially when patches conflict, but it gives you incredible control over your window manager. 
 Also, a quick note! Some patches might change the config.def.h, add these new changes to your config.h since they are default configs for the new patches.</p>
