@@ -100,11 +100,10 @@ However I recommend personally to get their official <a href="https://dl.suckles
 </code></pre>
 <p>Take a peek. You&#8217;ll see a bunch of <code>.c</code> files, a <code>Makefile</code>, and the golden goose: <strong>config.def.h</strong>.</p>
 <h2 id="the-infamous-">The Infamous <code>config.h</code></h2>
-<p>This is where the magic happens, folks. <code>config.def.h</code> is the <em>default</em> configuration. You&#8217;re not supposed to edit this directly. Instead, you copy it to <code>config.h</code>:
-<code>bash
-    $ cp config.def.h config.h
-</code>
-Now, config.h is <strong>your</strong> personal configuration file. Open it up with your favorite text editor. You&#8217;ll see C arrays defining your keys, your tags, your fonts, your colors. 
+<p>This is where the magic happens, folks. <code>config.def.h</code> is the <em>default</em> configuration. You&#8217;re not supposed to edit this directly. Instead, you copy it to <code>config.h</code>:</p>
+<pre><code class="language-bash">    $ cp config.def.h config.h
+</code></pre>
+<p>Now, config.h is <strong>your</strong> personal configuration file. Open it up with your favorite text editor. You&#8217;ll see C arrays defining your keys, your tags, your fonts, your colors. 
 It might look a bit intimidating at first, but it&#8217;s surprisingly straightforward.</p>
 <p>For now, don&#8217;t change anything. Let&#8217;s just get it built!</p>
 <h2 id="the-first-bake-compiling-dwm">The First Bake: Compiling DWM</h2>
