@@ -4,10 +4,10 @@
         <link href="https://cowmonk.github.io" />
         <link href="https://cowmonk.github.io/atom.xml" rel="self" />
 	<id>https://cowmonk.github.io/</id>
-	<updated>2025-04-29T00:00:00Z</updated>
+	<updated>2025-05-06T00:00:00Z</updated>
         <entry>
-		<id>https://cowmonk.github.io/blog4.xml#2025-04-29T00:00:00Z</id>
-		<updated>2025-04-29T00:00:00Z</updated>
+		<id>https://cowmonk.github.io/blog4.xml#2025-05-06T00:00:00Z</id>
+		<updated>2025-05-06T00:00:00Z</updated>
 		<title>DWM - Less is More!</title>
 		<author><name>cowmonk</name></author>
 		<link rel="alternate" type="text/html" href="https://cowmonk.github.io/blog4.html" />
@@ -18,7 +18,7 @@
   <h2>DWM - Less is More!</h2>
   <aside>A quick guide into THE suckless tiling window manager! Including patching!</aside>
   <address>cowmonk</address>
-  <time datetime="2025-04-29">2025-04-29</time>
+  <time datetime="2025-05-06">2025-05-06</time>
  </header>
 <p>A lot of people when they move into linux will learn of the magic of tiling window managers. </p>
 <p>Generally, 
