@@ -157,10 +157,11 @@ package manager. Once you&#8217;ve done that here are the general steps:</p>
 <li><p>Find a Patch: Head over to the dwm patches page. Find a patch you like. Let&#8217;s say you want the autostart patch, 
 which allows you to run commands automatically when dwm starts (I highly reccomend this especially if you&#8217;re running from a display manager!).</p></li>
 <li><p>Download the Patch: Download the .diff file for the patch. Save it somewhere, perhaps in a patches subdirectory within your dwm source folder.</p></li>
-<li><p>Apply the Patch: In your dwm source directory, use the patch command:
-<code>bash
-    patch -Np1 -i patchfile.diff
-</code></p></li>
+<li><p>Apply the Patch: In your dwm source directory, use the patch command:</p></li>
+</ol>
+<pre><code class="language-bash">        patch -Np1 -i patchfile.diff
+</code></pre>
+<ol start="4">
 <li><p>Resolve Conflicts (If Any): Sometimes, patches might conflict, especially if they modify the same lines of code or if you&#8217;re applying a patch meant 
 for an older version of dwm. This will result in .rej (rejected) files. You&#8217;ll need to manually edit the source files to resolve these conflicts, looking 
 at the .rej files to see what couldn&#8217;t be applied. This is the trickiest part, but it gets easier with practice. Start with simple, popular patches.</p></li>
