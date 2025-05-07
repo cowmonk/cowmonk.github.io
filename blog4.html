@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta charset="utf-8" /> 
+		<title>DWM - Less is More!</title>
+		<link rel="stylesheet" href="template.css" />
+		<link rel="alternate" href="atom.xml" type="application/atom+xml" title="Atom Feed" />
+                <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+                <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
+                <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png" />
+                <link rel="manifest" href="assets/images/site.webmanifest" />
+	</head>
+	<body>
+		<header>
+			<h1><a href="index.html">cowmonk's random blogs</a></h1>
+			<nav class="sblg-nav">
+				<span class="prevnext ">
+					<a href="blog1.html">&lt;-newer</a>
+				</span>
+				<span class="prevnext sblg-next-has">
+					<a href="blog3.html">older-&gt;</a>
+				</span>
+			</nav>
+		</header>
+                <section>
+                        <h3 style="color:yellow;">DWM - Less is More!</h3>
+			<p>
+				<q>A quick guide into THE suckless tiling window manager! Including patching!</q>
+			</p>
+			<p>
+				Published by 
+				<span class="name">cowmonk</span>
+				on
+				<time datetime="2025-04-29">2025-04-29</time>
+			</p>
+			<article data-sblg-article="1" data-sblg-tags="guide suckless tutorial">
+ <header>
+  <h2>DWM - Less is More!</h2>
+  <aside>A quick guide into THE suckless tiling window manager! Including patching!</aside>
+  <address>cowmonk</address>
+  <time datetime="2025-04-29">2025-04-29</time>
+ </header>
+<p>A lot of people when they move into linux will learn of the magic of tiling window managers. </p>
+<p>Generally, 
+they are curious, and some find it as a waste of time, others die by it. 
+And people will even wonder why in the hell someone would take the time to configure one of these things.</p>
+<p>However, I&#8217;m not here to debate whether or not it&#8217;s a waste of time, or if it&#8217;s worth it. I&#8217;m here to help out people who have heard of <a href="https://dwm.suckless.org/">dwm</a> and want to try it out. 
+Whether you&#8217;ve heard it from a friend, a youtuber, a random, or whomever, people at first find dwm as a scary thing that&#8217;s <strong>IMPOSSIBLE</strong> to configure.</p>
+<p>But fret not! For your neighborhood suckless shill is here to help!</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before you start going ham on the configuring&#47;ricing, this isn&#8217;t your average joe i3, Hyprland, or whatever. 
+You&#8217;ve probably heard that dwm is a &#8220;compile from source&#8221; configuration, and this just means that 
+every change you&#8217;re going to make has to be compiled all over again.</p>
+<p>&#8220;Woah, woah, woah!&#8221; you might be saying. &#8220;Compile? Like C code? H4x0r like stuff?&#8221;</p>
+<p>Yep, that&#8217;s the ticket! But don&#8217;t let it scare you off. It&#8217;s simpler than it sounds. Think of it like baking a cake. 
+You have a recipe (<strong>config.h</strong>), you mix your ingredients (the source code and your changes), and then you bake it (<strong>make</strong>). 
+Each time you want a different flavor (a new feature or keybinding), you tweak the recipe and bake it again. 
+You will need to kill dwm and re-run it again since the binary that runs is loaded in memory, it doesn&#8217;t change in real time.</p>
+<p>A common misconception is an over exaggeration on how tedious the reconfiguration is. Whilst it can be a bit annoying, 
+especially in the beginning when you are getting it tailored towards your preferences, it&#8217;s definitely overblown. 
+See, once you have a working system, there isn&#8217;t a need to keep on configuring onwards, a necessary process I would say.</p>
+<p>So, what do you actually <em>need</em>?</p>
+<h1 id="a-c-compiler"><strong>A C Compiler:</strong></h1>
+<p>Most likely, you&#8217;ll want <code>gcc</code>. It&#8217;s the most common C compiler everyone gets.</p>
+<p>If you&#8217;re on a Debian-based system (like Mint), you can usually get this and other essential tools by installing <code>build-essential</code>.</p>
+<pre><code class="language-bash">    $ sudo apt install build-essential 
+</code></pre>
+<p>For Arch users (for the &#8220;I use Arch btw&#8221; furries):</p>
+<pre><code class="language-bash">    $ sudo pacman -S base-devel
+</code></pre>
+<p>And for Fedora folks:</p>
+<pre><code class="language-bash">    $ sudo dnf groupinstall "Development Tools" "Development Libraries"
+</code></pre>
+<h1 id="make"><strong>Make:</strong></h1>
+<p>This is a build automation tool that will, well, &#8220;<em>make</em>&#8221; dwm for you. It usually comes with the <code>build-essential</code> or <code>base-devel</code> packages.</p>
+<h1 id="libx11-development-files"><strong>LibX11 development files:</strong></h1>
+<p>DWM interacts with the X Window System, so you&#8217;ll need the development headers for it. Often called something like <code>libx11-dev</code> or <code>libX11-devel</code>.</p>
+<p>Debian:</p>
+<pre><code class="language-bash">    $ sudo apt install libx11-dev libxft-dev libxinerama-dev
+</code></pre>
+<p>Arch:</p>
+<pre><code class="language-bash">    $ sudo pacman -S libx11 libxft libxinerama
+</code></pre>
+<p>Fedora:</p>
+<pre><code class="language-bash">    $ sudo dnf install libX11-devel libXft-devel libXinerama-devel
+</code></pre>
+<p><em>(Note: <code>libxft-dev</code> is for font rendering and <code>libxinerama-dev</code> is handy for multi-monitor setups, which you&#8217;ll probably want later on!)</em></p>
+<p>Got all that? Sweet!</p>
+<h2 id="getting-the-goods-the-source-code">Getting the Goods (The Source Code!)</h2>
+<p>Alright, let&#8217;s grab the dwm source code. The suckless crew hosts their code on their own git server. 
+However I recommend personally to get their official <a href="https://dl.suckless.org/dwm/dwm-6.5.tar.gz">tarball releases</a> (this links to the latest of the time of writing this: 6.5) their <a href="https://dwm.suckless.org/">page</a>.</p>
+<pre><code>1. Save the source code to where you want to keep it. A common spot is something like 
+    ~&#47;.config&#47; or ~&#47;.local&#47;suckless&#47;, just anywhere to hide it out of sight.
+
+2. Unextract it
+
+3. Open your terminal &#38; navigate to that directory (using cd and stuff)
+</code></pre>
+<p>Take a peek. You&#8217;ll see a bunch of <code>.c</code> files, a <code>Makefile</code>, and the golden goose: <strong>config.def.h</strong>.</p>
+<h2 id="the-infamous-">The Infamous <code>config.h</code></h2>
+<p>This is where the magic happens, folks. <code>config.def.h</code> is the <em>default</em> configuration. You&#8217;re not supposed to edit this directly. Instead, you copy it to <code>config.h</code>:
+<code>bash
+    $ cp config.def.h config.h
+</code>
+Now, config.h is <strong>your</strong> personal configuration file. Open it up with your favorite text editor. You&#8217;ll see C arrays defining your keys, your tags, your fonts, your colors. 
+It might look a bit intimidating at first, but it&#8217;s surprisingly straightforward.</p>
+<p>For now, don&#8217;t change anything. Let&#8217;s just get it built!</p>
+<h2 id="the-first-bake-compiling-dwm">The First Bake: Compiling DWM</h2>
+<p>Still in your dwm directory? Good. Time to compile!
+This is the part that sounds scary but is usually super simple thanks to the Makefile.</p>
+<p>To compile and install it system-wide:</p>
+<pre><code class="language-bash">    $ sudo make clean install
+</code></pre>
+<p>Or, if you prefer not to install it system-wide immediately yet (which is a good idea for testing):</p>
+<pre><code class="language-bash">    $ make
+</code></pre>
+<p>If all your prerequisites were met, this should complete without errors. You&#8217;ll now have a dwm executable file in the directory (and runnable in your terminal if 
+you ran the system wide installation)!</p>
+<p>To run dwm, you&#8217;ll typically need to configure your .xinitrc file to launch it. 
+For example, you could add this line to your ~&#47;.xinitrc:</p>
+<pre><code class="language-bash">    exec dwm
+</code></pre>
+<p>For the people who run a Display Manager which is more likely (i.e gdm, sddm, lightdm, etc.). You&#8217;ll need to create a .desktop file. 
+This file basically has the information and stuff for the thing to see and run it. You&#8217;ll need to create one in the &#47;usr&#47;share&#47;xsessions&#47;. 
+And here&#8217;s an example <strong>dwm.desktop</strong> for reference:</p>
+<p>&#47;usr&#47;share&#47;xsessions&#47;dwm.desktop:</p>
+<pre><code>[Desktop Entry]
+Encoding=UTF-8
+Name=dwm
+Comment=Dynamic window manager
+Exec=dwm
+Icon=dwm
+Type=XSession
+</code></pre>
+<p>The default keybinding for the Terminal is <em>Alt+Shift+Return</em>. Any other keybindings can be found in config.h, it shouldn&#8217;t be hard to
+understand the giant struct declaration. Comments left by the suckless team are your friends! Read them!</p>
+<h2 id="uh-oh-its-plain-time-for-patches">Uh Oh, It&#8217;s Plain! Time for Patches!</h2>
+<p>&#8220;Okay,&#8221; you say, &#8220;this is cool and all, but it&#8217;s a bit&#8230; barebones. My buddy&#8217;s dwm has gaps, a cool status bar, and fancy tag names!&#8221;</p>
+<p>Aha! You&#8217;ve stumbled upon the next layer of the suckless philosophy: patching.</p>
+<p>Instead of bloating the core dwm code with every feature under the sun, the suckless community maintains a collection of <a href="https://dwm.suckless.org/patches/">patches</a>. 
+These are .diff files that you apply to your source code to add specific functionalities.</p>
+<pre><code class="language-bash">    Want gaps between windows? There&#39;s a patch for that.
+    Want clickable status bar elements? Patch!
+    Want windows to swallow terminals? Patch!
+    Want your bar at the bottom? You guessed it, patch!
+</code></pre>
+<p>This is where the &#8220;do it yourself&#8221; ethos really shines. You pick and choose exactly what you want. However it might be daunting for some people. 
+And unfortunately, many patches don&#8217;t really like to work together. If you want a nice dwm patching experience, I would use <a href="https://github.com/bakkeby/dwm-flexipatch">this one</a>, 
+he&#8217;s the same creator as <a href="https://github.com/bakkeby/st-flexipatch">st-flexipatch</a> and other &#8220;flexipatch&#8221; series. Basically, all you do is edit the <strong>patches.h</strong> file 
+and you can basically get all the patches you want without too much hassle.</p>
+<p>For those who are the tinkers, continue on&#8230;</p>
+<h2 id="how-to-patch-the-basics">How to Patch (The Basics)</h2>
+<p>First of all, you&#8217;ll need to download the patch utility if you don&#8217;t have it. You can probably guess what it&#8217;ll be called when you install it using a 
+package manager. Once you&#8217;ve done that here are the general steps:</p>
+<ol>
+<li><p>Find a Patch: Head over to the dwm patches page. Find a patch you like. Let&#8217;s say you want the autostart patch, 
+which allows you to run commands automatically when dwm starts (I highly reccomend this especially if you&#8217;re running from a display manager!).</p></li>
+<li><p>Download the Patch: Download the .diff file for the patch. Save it somewhere, perhaps in a patches subdirectory within your dwm source folder.</p></li>
+<li><p>Apply the Patch: In your dwm source directory, use the patch command:
+<code>bash
+    patch -Np1 -i patchfile.diff
+</code></p></li>
+<li><p>Resolve Conflicts (If Any): Sometimes, patches might conflict, especially if they modify the same lines of code or if you&#8217;re applying a patch meant 
+for an older version of dwm. This will result in .rej (rejected) files. You&#8217;ll need to manually edit the source files to resolve these conflicts, looking 
+at the .rej files to see what couldn&#8217;t be applied. This is the trickiest part, but it gets easier with practice. Start with simple, popular patches.</p></li>
+<li><p>Recompile: After applying a patch (and resolving any conflicts), you need to recompile!
+<code>bash
+    $ sudo make clean install
+</code></p></li>
+</ol>
+<p>And that&#8217;s the patching dance! It can be a bit fiddly, especially when patches conflict, but it gives you incredible control over your window manager. 
+Also, a quick note! Some patches might change the config.def.h, add these new changes to your config.h since they are default configs for the new patches.</p>
+<h2 id="next-steps-the-suckless-mentality">Next Steps &#38; The Suckless Mentality</h2>
+<p>From here, the world is your oyster:</p>
+<ul>
+<li><strong>Explore config.h:</strong> Seriously, dive in. Change your mod key (Alt is default, many prefer the Super&#47;Windows key, just change the MODKEY definition from Mod1Mask to Mod4Mask). 
+Change your fonts, colors, and tag names. Recompile after every change.</li>
+<li><strong>Browse More Patches:</strong> Get those gaps (vanitygaps), add a systray, try different layouts (fibonacci, centeredmaster).</li>
+<li><strong>Status Bar:</strong> Dwm&#8217;s status bar is typically populated by setting the root window&#8217;s name. You&#8217;ll often use a separate shell script or program (like slstatus or a custom script) 
+that periodically updates this. The autostart patch is great for launching such scripts. You can also decide to change out the bar to something like <a href="https://polybar.github.io/">polybar</a> or something.</li>
+<li><strong>Embrace Simplicity:</strong> The core idea of suckless is to keep things simple and understandable. If a patch seems overly complex or breaks things too often, maybe it&#8217;s not for you. 
+The beauty is in building your ideal, minimal environment.</li>
+</ul>
+<p>Don&#8217;t be afraid to break things! If you mess up your config.h or a patch goes horribly wrong, you can always run a <em>patch -R -i file.patch</em>. And for the config.h, the config.def.h 
+will always be there as the default to save you.</p>
+<p>It&#8217;s a journey, not a race. You&#8217;ll learn a bit about C, a bit about how window managers work, and a lot about what you really want from your desktop.</p>
+<p>So go forth, compile, patch, and make dwm your own! It&#8217;s less about having a flashy setup (though you can certainly make it look nice) and more about having a tool that&#8217;s perfectly 
+tailored to you. Less is indeed more, especially when you&#8217;re the one deciding what that &#8220;less&#8221; consists of.</p>
+<p>Happy Hacking!</p>
+<p>&#8211; cowmonk</p>
+</article>
+			<p class="tags">
+				Tags: <span class="sblg-tag">guide</span><span class="sblg-tag">suckless</span><span class="sblg-tag">tutorial</span>.
+			</p>
+                </section>
+		<nav>
+			<span class="prevnext ">
+				<a href="blog1.html">&lt;-newer</a>
+			</span>
+			<span class="prevnext sblg-next-has">
+				<a href="blog3.html">older-&gt;</a>
+			</span>
+		</nav>
+		<footer>
+                        <a href="https://www.vim.org/"><img src="https://cyber.dabamos.de/88x31/vim.vialle.love.anim.gif" alt="description" height="31" /></a> <img src="https://88x31.kate.pet/madeon_linux.gif" height="31" /> <img src="https://cyber.dabamos.de/88x31/javascript-zero.gif" height="31" />
+		</footer>
+	</body>
+</html>
