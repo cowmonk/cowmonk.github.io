@@ -143,11 +143,10 @@ which allows you to run commands automatically when dwm starts (I highly reccome
 <li><p>Resolve Conflicts (If Any): Sometimes, patches might conflict, especially if they modify the same lines of code or if you&#8217;re applying a patch meant 
 for an older version of dwm. This will result in .rej (rejected) files. You&#8217;ll need to manually edit the source files to resolve these conflicts, looking 
 at the .rej files to see what couldn&#8217;t be applied. This is the trickiest part, but it gets easier with practice. Start with simple, popular patches.</p></li>
-<li><p>Recompile: After applying a patch (and resolving any conflicts), you need to recompile!
-<code>bash
-    $ sudo make clean install
-</code></p></li>
+<li><p>Recompile: After applying a patch (and resolving any conflicts), you need to recompile!</p></li>
 </ol>
+<pre><code class="language-bash">        $ sudo make clean install
+</code></pre>
 <p>And that&#8217;s the patching dance! It can be a bit fiddly, especially when patches conflict, but it gives you incredible control over your window manager. 
 Also, a quick note! Some patches might change the config.def.h, add these new changes to your config.h since they are default configs for the new patches.</p>
 <h2 id="next-steps-the-suckless-mentality">Next Steps &#38; The Suckless Mentality</h2>
