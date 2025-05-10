@@ -30,7 +30,7 @@ section > p q				{ display: inline-block;
 					  margin-bottom: 1em; }
 section > p span,
 section > p time,
-article					{ color: #fff; }
+article					{ color: #eee; }
 article > header			{ display: none; }
 footer					{ color: #aaa; }
 
