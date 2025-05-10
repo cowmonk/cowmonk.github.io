@@ -33,3 +33,23 @@ section > p time,
 article					{ color: #fff; }
 article > header			{ display: none; }
 footer					{ color: #aaa; }
+
+.terminal-output {
+        background-color: #111;
+        color: #e0e0e0;
+        border: 2px solid #888;
+        padding: 1em;
+        margin: 1.4em 0;
+}
+
+.terminal-output pre {
+        margin: 0;
+        padding: 0;
+        overflow-x: auto;
+        white-space: pre;
+        background-color: transparent;
+        color: inherit;
+        font-family: inherit;
+        font-size: 0.95em;
+        line-height: 1.5;
+}
