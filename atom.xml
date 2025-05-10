@@ -75,12 +75,13 @@ See, once you have a working system, there isn&#8217;t a need to keep on configu
 <h2 id="getting-the-goods-the-source-code">Getting the Goods (The Source Code!)</h2>
 <p>Alright, let&#8217;s grab the dwm source code. The suckless crew hosts their code on their own git server. 
 However I recommend personally to get their official <a href="https://dl.suckless.org/dwm/dwm-6.5.tar.gz">tarball releases</a> (this links to the latest of the time of writing this: 6.5) their <a href="https://dwm.suckless.org/">page</a>.</p>
-<pre><code>1. Save the source code to where you want to keep it. A common spot is something like ~&#47;.config&#47; or ~&#47;.local&#47;suckless&#47;, just anywhere to hide it out of sight.
+<ol>
+        <li>Save the source code to where you want to keep it. A common spot is something like ~&#47;.config&#47; or ~&#47;.local&#47;suckless&#47;, just anywhere to hide it out of sight.</li>
 
-2. Unextract it
+        <li>Unextract it</li>
 
-3. Open your terminal &#38; navigate to that directory (using cd and stuff)
-</code></pre>
+        <li>Open your terminal &#38; navigate to that directory (using cd and stuff)</li>
+</ol>
 <p>Take a peek. You&#8217;ll see a bunch of <code>.c</code> files, a <code>Makefile</code>, and the golden goose: <strong>config.def.h</strong>.</p>
 <h2 id="the-infamous-">The Infamous <code>config.h</code></h2>
 <p>This is where the magic happens, folks. <code>config.def.h</code> is the <em>default</em> configuration. You&#8217;re not supposed to edit this directly. Instead, you copy it to <code>config.h</code>:</p>
