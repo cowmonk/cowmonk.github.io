@@ -90,6 +90,41 @@ body > header p                                 { opacity: 0.8;
                                                   line-height: 1.3; }
 .profile-info p em                              { color: #ccc; }
 .profile-info a                                 { }
+.profile-info details.contacts summary          { font-size: 1em;
+                                                  color: #bbb;
+                                                  font-weight: bold;
+                                                  padding: 0.6em 0.2em 0.6em 0;
+                                                  cursor: pointer;
+                                                  list-style: none;
+                                                  transition: color 0.2s ease, border-color 0.2s ease;
+                                                  border-bottom: 1px solid #333;
+                                                  display: block; }
+
+.profile-info details.contacts summary::-webkit-details-marker,
+.profile-info details.contacts summary::marker  { display: none }
+.profile-info details.contacts summary:focus    { outline: none; }
+.profile-info details.contacts summary:focus-visible { box-shadow: 0 0 0 2px #111, 0 0 0 4px yellow; 
+                                                       border-bottom-color: transparent; }
+
+.profile-info details.contacts summary::before { content: "[+] ";
+                                                 color: #888;
+                                                 font-weight: normal;
+                                                 display: inline;
+                                                 margin-left: 0.2em;
+                                                 transition: color 0.2s ease; }
+.profile-info details.contacts summary:hover,
+.profile-info details.contacts summary:hover::before { color: #fff; }
+.profile-info details.contacts[open] > summary  { color: yellow;
+                                                  border-bottom-color: yellow; }
+.profile-info details.contacts[open] > summary:focus-visible { border-bottom-color: transparent; }
+.profile-info details.contacts[open] > summary::before { content: "[-] ";
+                                                         color: yellow; }
+.profile-info details.contacts[open] .contact-details { margin: 0;
+                                                        padding: 0.75em 0.5em 0.5em calc(0.2em + 3ch + 0.2em);
+                                                        font-size: 0.9em;
+                                                        background-color: #161616;
+                                                        border-bottom-left-radius: 3px;
+                                                        border-bottom-right-radius: 3px; }
 
 .contact-details                                { margin: 0;
                                                   padding: 0;
