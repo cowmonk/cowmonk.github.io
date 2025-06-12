@@ -28,9 +28,37 @@ body > header p                                 { opacity: 0.8;
                                                   color: #ccc;
                                                   margin: 0 0 1rem 0; }
 
-#main-nav a                                     { color: yellow;
-                                                  margin-right: 1.5rem;
-                                                  font-size: 1.1em; }
+#main-nav                                       { display: flex;
+                                                  justify-content: center;
+                                                  flex-wrap: wrap;
+                                                  gap: 0.75em;
+                                                  line-height: 1.2; }
+#main-nav a                                     { color: #ccc;
+                                                  text-decoration: none;
+                                                  font-size: 1.2em;
+                                                  padding: 0.1em 0.2em;
+                                                  transition: color 0.2s ease;
+                                                  position: relative;
+                                                  display: inline-flex;
+                                                  align-items: baseline; }
+#main-nav a.active-nav-item,
+#main-nav a.active-nav-item::before,
+#main-nav a.active-nav-item::after              { color: #fff; }
+#main-nav a::before,
+#main-nav a::after                              { color: #666;
+                                                  transition: color 0.2s ease; 
+                                                  font-weight: normal; }
+#main-nav a::before                             { content: "[";
+                                                  margin-right: 0.4em; }
+#main-nav a::after                              { content: "]";
+                                                  margin-left: 0.4em }
+#main-nav a:hover,
+#main-nav a:focus                               { color: yellow; }
+#main-nav a:hover::before,
+#main-nav a:hover::after,
+#main-nav a:focus::before,
+#main-nav a:focus::after                        { color: yellow; }
+
 .content-wrapper                                { display: flex;
                                                   width: 50rem;  
                                                   max-width: 96%;
@@ -120,6 +148,7 @@ body > header p                                 { opacity: 0.8;
 .project-item p                                 { margin-bottom: 0.5rem;
                                                   color: #ccc; }
 .project-item a                                 { font-weight: bold; }
+
 
 body > footer                                   { width: 50rem;
                                                   max-width: 96%;
