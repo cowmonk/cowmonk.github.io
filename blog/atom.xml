@@ -1,16 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>cowmonks random blog</title>
-        <link href="https://cowmonk.github.io" />
-        <link href="https://cowmonk.github.io/atom.xml" rel="self" />
-	<id>https://cowmonk.github.io/</id>
-	<updated>2025-05-06T00:00:00Z</updated>
-        <entry>
-		<id>https://cowmonk.github.io/blog4.xml#2025-05-06T00:00:00Z</id>
+	<link href="https://cowmonk.based.pt" />
+	<link href="https://cowmonk.github.io/atom.xml" rel="self" />
+	<id>https://cowmonk.based.pt/</id>
+	<updated>2025-10-07T00:00:00Z</updated>
+	<entry>
+		<id>https://cowmonk.based.pt/blog5.xml#2025-10-07T00:00:00Z</id>
+		<updated>2025-10-07T00:00:00Z</updated>
+		<title>Announcing CSFS!</title>
+		<author><name>cowmonk</name></author>
+		<link rel="alternate" type="text/html" href="https://cowmonk.based.pt/blog5.html" />
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+<article>
+ <header>
+  <h2>Announcing CSFS!</h2>
+  <aside>Official announcement to a new project that I'm currently working on.</aside>
+  <address>cowmonk</address>
+  <time datetime="2025-10-07">2025-10-07</time>
+ </header>
+<h2 id="what-is-csfs">What is CSFS?</h2>
+<p>CSFS stands for Cowmonk&#8217;s Suckless From Scratch. It&#8217;s a guide inspired by <a href="https://www.linuxfromscratch.org/">Linux From Scratch</a>, but with a distinct philosophical goal:
+to build a functional Linux system by replacing as many core components as possible with suckless-aligned alternatives.</p>
+<p>This means moving away from GNU&#8217;s ubiquity and other common choices. For instance, instead of <code>sysvinit</code>, it&#8217;ll be using <code>sinit</code> instead. 
+Furthermore staples like glibc and the broader GNU toolchain, will be replaced with more minimal and focused replacements.</p>
+<p><strong>BUT</strong>! CSFS is NOT:</p>
+<ul>
+<li><strong>a smaller <a href="https://github.com/oasislinux/oasis">oasis linux</a></strong>: While Oasis is an excellent example of a minimal, statically-linked Linux system, CSFS has different goals and may make different compromises.</li>
+<li><strong>an unusable daily driver</strong>: The aim is to create a system that can be used for everyday tasks, not just a theoretical exercise.</li>
+<li><strong>a TTY-only distro</strong>: While the simplicity of the terminal is superior, the goal is a graphical environment.</li>
+<li><strong>devoid of any &#8220;bloat&#8221;</strong>: What constitutes &#8220;bloat&#8221; is subjective, and we will be making pragmatic choices.</li>
+<li><strong>not &#8220;suckfull-free&#8221; in the end&#8230;</strong>: As we&#8217;ll discuss, achieving a purely &#8220;suckless&#8221; state is practically impossible.</li>
+</ul>
+<h2 id="sounds-cool-but">Sounds cool but&#8230;</h2>
+<p>Understandably, after hearing that my suckless from scratch is NOT &#8220;fully suckless&#8221;. Then is it really suckless?</p>
+<p>Let&#8217;s be honest: all software sucks. This is a sentiment echoed within the suckless community and beyond. Linux itself, while powerful, is considered by some to be bloated.
+The influencial <a href="https://harmful.cat-v.org/software/operating-systems/linux/">cat-v website, is critical of Linux</a>, but they also state that all OSes ever created sucks.
+Pretty pessimistic. However, despite this fact, we are not using &#8220;harm-less&#8221; software, we are using &#8220;suckless&#8221; software.</p>
+<p>Compromises are always made, in the pursuit of a &#8220;perfect&#8221; suckless ecosystem, we must build everything from scratch, including the OS.
+No one in their right mind wants to write a new OS from scratch to use as a daily driver. Neither does one want to give up some aspects
+of their respective lives to use some stupid tty, where you can only edit txt documents. But at that point, maybe even the FS is considered
+bloat unless you replace it with some 1980s implementation and write byte by byte.</p>
+<p>A prime example of this necessary compromise is the Xorg display server. Many in the suckless community would agree that Xorg is <a href="http://www.art.net/~hopkins/Don/unix-haters/x-windows/disaster.html">massive and convoluted</a>, 
+with a codebase of around 420,000 lines. Yet, many of us who use minimalist tiling window managers like <code>dwm</code> still rely on it. Why? Because compromises are inevitable in the pursuit of a usable system.</p>
+<blockquote>
+<p><em>&#8220;Then do we give up in this pursuit of minimal software?&#8221;</em></p>
+<p>Of course not!</p>
+</blockquote>
+<p>Why do we use Linux instead of Windows or MacOS (other than privacy concerns)? Why do we use tiling WMs instead of KDE or GNOME? For the
+DIY distros, other than customizability, why do we enjoy the &#8220;manual&#8221; install?</p>
+<p>At least for me, I found the answer lies in appreciation of minimal software. Simple, yet elegant. One of the first steps in suckless is to
+reject systemd. Some people may criticize this and call you stupid or dumb. However, for people like me, we see that the Goliath known as 
+systemd rejects KISS and Unix philosophy, ultimately bringing us closer to what we wanted to avoid: Windows.</p>
+<p>Suckless is not about removing all the &#8220;suck&#8221;, but reducing it, making it suck LESS.</p>
+<blockquote>
+<p><em>&#8220;Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away&#8221;</em></p>
+<p>&#8212; Antoine de Saint-Exupéry</p>
+</blockquote>
+<h2 id="goals">Goals</h2>
+<p>The primary goal of CSFS is to produce a clear, well-documented, and repeatable guide for building a minimal Linux system from source. This guide will walk through every step,
+from preparing the build environment to compiling the kernel, setting up the base system, and configuring a graphical environment.</p>
+<p>The final product will be:</p>
+<ul>
+<li><strong>A Living Document</strong>: The guide will be maintained in a public Git repository and will evolve over time.</li>
+<li><strong>A Base System</strong>: A bootable, functional base that others can use as a foundation for their own suckless-inspired systems.</li>
+<li><strong>An Educational Tool</strong>: A resource for learning how a Linux system is assembled from the ground up, with a focus on minimalist components.</li>
+</ul>
+<p>Like Linux From Scratch, there will also be a Beyond version where it expands to include the compilation of the GUI and other tad-bits such as gaming.
+So the earlier comment of a TTY-only distro isn&#8217;t fully inaccurate, since the base system will obviously be very small compared to the full Beyond version.</p>
+<h2 id="contributing-helping-out">Contributing &#38; Helping out</h2>
+<p>This is not a solo mission! Open-source is about collaboration, and CSFS will be much better with community involvement! Here&#8217;s how you can help:</p>
+<ol>
+<li><strong>Documentation and Writing</strong> - catching typos, grammatical errors, and unclear phrasing. If you are incredible with LaTeX, I appreciate any contributions in that front to make it look nicer.</li>
+<li><strong>Testing and Feedback</strong> - real-world testing is crucial. You can try building it yourself using your own hardware (or in a VM), and report any bugs; opening a detailed issue is incredibly helpful. And if you know of a better, more minimal piece of software that CSFS could use, let me know!</li>
+<li><strong>Development</strong> - For those who can code, you can help via writing scripts to improve the base system. Furthermore, you can submit any patches that improve or fix any software components CSFS uses.</li>
+</ol>
+<p>You can find the project <a href="https://github.com/cowmonk/CSFS">here</a>. There are some other notes and tad-bits if you want to hear more about what CSFS is and other decisions that
+I&#8217;ve decided to make.</p>
+<h2 id="closing">Closing</h2>
+<p>I know that some of you are expecting LearnixOS or updates on CowOS. Don&#8217;t worry, those projects are mostly in haitus and they haven&#8217;t been abandoned. For LearnixOS, it&#8217;s mostly burn-out, it&#8217;s the same
+for pretty much all developers. We will eventually get back to work, so be on the lookout! For CowOS, making an OS from scratch in C has really taken a toll on my mind.</p>
+<p>So, why start a new project now?</p>
+<p>The answer is simple: scope and sanity. CSFS is a fundamentally different kind of challenge, and much more bite-sized. Unilke LearnixOS, this project isn&#8217;t reliant on utilities written from scratch. Which should make it
+a lot easier to compile the base system since there&#8217;s already millions of alternatives that should fit the bar.</p>
+<p>Thank you for your patience. I&#8217;ve been taking some time away from the screen to touch grass, and I&#8217;m returning with renewed focus. I&#8217;m incredibly excited to dive into CSFS and hope you&#8217;ll join me on this journey.</p>
+<p>See you next time! KISS.</p>
+<p>&#8211; cowmonk</p>
+</article></div>
+		</content>
+	</entry>
+	<entry>
+		<id>https://cowmonk.based.pt/blog4.xml#2025-05-06T00:00:00Z</id>
 		<updated>2025-05-06T00:00:00Z</updated>
 		<title>DWM - Less is More!</title>
 		<author><name>cowmonk</name></author>
-		<link rel="alternate" type="text/html" href="https://cowmonk.github.io/blog4.html" />
+		<link rel="alternate" type="text/html" href="https://cowmonk.based.pt/blog4.html" />
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
 <article>
@@ -185,11 +270,11 @@ tailored to you. Less is indeed more, especially when you&#8217;re the one decid
 		</content>
 	</entry>
 	<entry>
-		<id>https://cowmonk.github.io/blog3.xml#2025-04-01T00:00:00Z</id>
+		<id>https://cowmonk.based.pt/blog3.xml#2025-04-01T00:00:00Z</id>
 		<updated>2025-04-01T00:00:00Z</updated>
 		<title>The Ultimate Abstraction: Trading ./configure for Click-to-Install</title>
 		<author><name>cowmonk</name></author>
-		<link rel="alternate" type="text/html" href="https://cowmonk.github.io/blog3.html" />
+		<link rel="alternate" type="text/html" href="https://cowmonk.based.pt/blog3.html" />
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
 <article>
@@ -227,11 +312,11 @@ but at least for me: the lack of challenge is always worth it. It makes using my
 		</content>
 	</entry>
 	<entry>
-		<id>https://cowmonk.github.io/blog2.xml#2025-03-22T00:00:00Z</id>
+		<id>https://cowmonk.based.pt/blog2.xml#2025-03-22T00:00:00Z</id>
 		<updated>2025-03-22T00:00:00Z</updated>
 		<title>Beyond Prepackaged - Why I Use Linux From Scratch</title>
 		<author><name>cowmonk</name></author>
-		<link rel="alternate" type="text/html" href="https://cowmonk.github.io/blog2.html" />
+		<link rel="alternate" type="text/html" href="https://cowmonk.based.pt/blog2.html" />
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
 <article>
@@ -291,11 +376,11 @@ amount.</p>
 		</content>
 	</entry>
 	<entry>
-		<id>https://cowmonk.github.io/blog1.xml#2025-03-18T00:00:00Z</id>
+		<id>https://cowmonk.based.pt/blog1.xml#2025-03-18T00:00:00Z</id>
 		<updated>2025-03-18T00:00:00Z</updated>
 		<title>No Blue Screens Here, Just a Bit of Kernel Panic and a Whole Load of Blogging</title>
 		<author><name>cowmonk</name></author>
-		<link rel="alternate" type="text/html" href="https://cowmonk.github.io/blog1.html" />
+		<link rel="alternate" type="text/html" href="https://cowmonk.based.pt/blog1.html" />
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
 <article>
