@@ -10,7 +10,7 @@
 		<updated>2025-10-07T00:00:00Z</updated>
 		<title>Announcing CSFS!</title>
 		<author><name>cowmonk</name></author>
-		<link rel="alternate" type="text/html" href="https://cowmonk.based.pt/blog5.html" />
+		<link rel="alternate" type="text/html" href="https://cowmonk.based.pt/blog/blog5.html" />
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
 <article>
@@ -95,7 +95,7 @@ a lot easier to compile the base system since there&#8217;s already millions of 
 		<updated>2025-05-06T00:00:00Z</updated>
 		<title>DWM - Less is More!</title>
 		<author><name>cowmonk</name></author>
-		<link rel="alternate" type="text/html" href="https://cowmonk.based.pt/blog4.html" />
+		<link rel="alternate" type="text/html" href="https://cowmonk.based.pt/blog/blog4.html" />
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
 <article>
@@ -274,7 +274,7 @@ tailored to you. Less is indeed more, especially when you&#8217;re the one decid
 		<updated>2025-04-01T00:00:00Z</updated>
 		<title>The Ultimate Abstraction: Trading ./configure for Click-to-Install</title>
 		<author><name>cowmonk</name></author>
-		<link rel="alternate" type="text/html" href="https://cowmonk.based.pt/blog3.html" />
+		<link rel="alternate" type="text/html" href="https://cowmonk.based.pt/blog/blog3.html" />
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
 <article>
@@ -316,7 +316,7 @@ but at least for me: the lack of challenge is always worth it. It makes using my
 		<updated>2025-03-22T00:00:00Z</updated>
 		<title>Beyond Prepackaged - Why I Use Linux From Scratch</title>
 		<author><name>cowmonk</name></author>
-		<link rel="alternate" type="text/html" href="https://cowmonk.based.pt/blog2.html" />
+		<link rel="alternate" type="text/html" href="https://cowmonk.based.pt/blog/blog2.html" />
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
 <article>
@@ -380,7 +380,7 @@ amount.</p>
 		<updated>2025-03-18T00:00:00Z</updated>
 		<title>No Blue Screens Here, Just a Bit of Kernel Panic and a Whole Load of Blogging</title>
 		<author><name>cowmonk</name></author>
-		<link rel="alternate" type="text/html" href="https://cowmonk.based.pt/blog1.html" />
+		<link rel="alternate" type="text/html" href="https://cowmonk.based.pt/blog/blog1.html" />
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
 <article>
