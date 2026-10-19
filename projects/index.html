@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
     <title>Projects | cowmonk's Place</title>
+    <link rel="canonical" href="https://daat.foo/~cowmonk/projects/" />
     <link rel="stylesheet" href="../main.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png" />
@@ -19,7 +20,6 @@
             <a href="#projects" class="active-nav-item" aria-current="page"><b>Projects</b></a>
             <a href="../blog/">Blog</a>
             <a href="../interests/">Interests</a>
-            <a href="../credits/">Credits</a>
         </nav>
     </header>
 
@@ -41,35 +41,40 @@
                     <dt>Codeberg</dt>
                     <dd><a href="https://codeberg.org/cowmonk" target="_blank" rel="noopener noreferrer">cowmonk</a></dd>
 
-                    <dt>Based Git</dt>
-                    <dd><a href="https://git.based.pt/cowmonk" target="_blank" rel="noopener noreferrer">cowmonk</a></dd>
+                    <dt>Git</dt>
+                    <dd><a href="https://git.daat.foo/" target="_blank" rel="noopener noreferrer">git.daat.foo</a></dd>
                 </dl>
             </details>
         </aside>
 
         <main class="main-content">
             <section id="projects">
-                <h2><span class="prompt">$</span> My Projects</h2>
+                <h2><span class="prompt">$</span> Selected Projects</h2>
                 <article class="project-item">
-                    <h3>[ LearnixOS ]</h3>
-                    <p>I was the founder of the github and project, most of the projects are under my old github profile. It's a Linux-based operating system designed for both beginners exploring Linux for the first time and advanced users seeking a lightweight yet powerful OS for daily use.</p>
-                    <p><a href="https://learnixos.github.io">Learn More -&gt;</a></p>
+                    <h3>[ musllvm ]</h3>
+                    <p>A Make build system for musl and Clang/LLVM cross toolchains targeting x86_64 and aarch64 Linux. Builds the C and C++ runtimes from pinned sources.</p>
+                    <p><a href="https://github.com/cowmonk/musllvm">View GitHub -&gt;</a></p>
                 </article>
-                <!-- <article class="project-item">
-                    <h3>[ Dotless ]</h3>
-                    <p>Suckless "Dotfiles" installable via a POSIX Makefile. Just a good quick base to build off of.</p>
-                    <p><a href="https://git.based.pt/dotless/file/README.html">View Dotfiles ->&gt</a></p>
+                <article class="project-item">
+                    <h3>[ rats ]</h3>
+                    <p>RAdix iniT Suite is my fork of sinit, adding service supervision, dependency management, and logging. It includes an init, supervisor, control client, and logger.</p>
+                    <p><a href="https://github.com/cowmonk/rats">View GitHub -&gt;</a></p>
                 </article>
-                --> 
+                <article class="project-item">
+                    <h3>[ dotless ]</h3>
+                    <p>My automated setup for a suckless desktop, using a POSIX Makefile to build and install the tools and configs. Includes laptop and OpenBSD options.</p>
+                    <p><a href="https://github.com/cowmonk/dotless">View GitHub -&gt;</a></p>
+                </article>
+                <article class="project-item">
+                    <h3>[ aruu ]</h3>
+                    <p>A Unix utility suite based on sbase and ubase, with additional tools and ports from other systems. I'm a small contributor.</p>
+                    <p>It will also be part of MICE (Modular Integrated Computing Environment), a Unix-like operating system in development with its own package tools, rats for init, and a Wayland desktop.</p>
+                    <p><a href="https://github.com/xplshn/aruu">View GitHub -&gt;</a> | <a href="https://github.com/cowmonk/aruu">My fork -&gt;</a></p>
+                </article>
                 <article class="project-item">
                     <h3>[ CowOS ]</h3>
-                    <p>Unlike LearnixOS this is NOT Linux-based. This is a Unix-like Operating System that's programmed from scratch in C.</p>
-                    <p><a href="https://github.com/cowmonk/cowos">View Github -&gt;</a></p>
-                </article>
-                <article class="project-item">
-                    <h3>[ Website ]</h3>
-                    <p>I debated whether or not to include this, but I decided to so people can find the hosted source code. I don't think I need any explaining, but it's just my personal website that you see here :).</p>
-                    <p><a href="https://github.com/cowmonk/cowmonk.github.io">View Github -&gt;</a></p>
+                    <p>A hobby operating system written from scratch in C. Uses Clang/LLVM and the Limine bootloader, and is still heavily under development.</p>
+                    <p><a href="https://github.com/cowmonk/cowos">View GitHub -&gt;</a></p>
                 </article>
             </section>
         </main>
